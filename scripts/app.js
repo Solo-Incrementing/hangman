@@ -3,12 +3,14 @@ const highScore = document.getElementById('highScore');
 const score = document.getElementById('score');
 const word = document.getElementById('word');
 
-const chemicalElements = ["hydrogen", "helium", "lithium", "beryllium", "boron", "carbon", "nitrogen", "oxygen", "fluorine", "neon", "sodium", "magnesium", "aluminium", "silicon", "phosphorus", "sulfur", "chlorine", "argon", "potassium", "calcium"];
+const wordList = ["app", "pop", "up", "dad", "mum", "sue", "cue", "eye", "wow"];
 
 let currentWord = "";
 let revealedWord = "";
 let strikes = 0;
 const maxStrikes = 10;
+let scoreValue = 0;
+let highScoreValue = 0;
 
 const alphabet = "abcdefghijklmnopqrstuvwxyz";
 for (letterIndex in alphabet) {
@@ -23,8 +25,8 @@ for (letterIndex in alphabet) {
 }
 
 function initializeNewWord() {
-  const randomNum = Math.floor(Math.random() * chemicalElements.length);
-  currentWord = chemicalElements[randomNum];
+  const randomNum = Math.floor(Math.random() * wordList.length);
+  currentWord = wordList[randomNum];
   revealedWord = "";
   for (let i = 0; i < currentWord.length; ++i) {
     revealedWord += "_";
@@ -52,45 +54,45 @@ function guessLetter(guess) {
   }
   else {
     if (!revealedWord.includes('_')) {
-
+      wordFound()
     }
   }
 
   if (strikes >= maxStrikes) {
-    console.log('You didn\'t guess in time!');
-    initializeNewWord();
+    wordNotFound();
   }
 
   word.innerText = revealedWord;
 }
 
 function wordFound() {
-  let scoreValue = Number(score.innerText);
-  let highScoreValue = Number(highScore.innerText);
-  console.log('Congratulations! You found the word!');
   scoreValue++;
   if (highScoreValue < scoreValue) {
     highScoreValue = scoreValue;
   }
 
-  score.innerText = scoreValue;
-  highScore.innerText = highScoreValue;
-
+  updateScoreDisplay();
+  console.log('Congratulations! You found the word!');
   initializeNewWord();
 }
 
 function wordNotFound() {
-  let scoreValue = Number(score.innerText);
-  let highScoreValue = Number(highScore.innerText);
-  console.log('Congratulations! You found the word!');
-  initializeNewWord();
   if (highScoreValue < scoreValue) {
     highScoreValue = scoreValue;
   }
 
-  score.innerText = scoreValue;
-  highScore.innerText = highScoreValue;
+  scoreValue = 0;
+
+  updateScoreDisplay();
+  console.log('You didn\'t guess in time!');
+  initializeNewWord();
 }
+
+function updateScoreDisplay() {
+  score.innerText = `Score: ${scoreValue}`;
+  highScore.innerText = `High Score: ${highScoreValue}`;
+}
+
 function setCharAt(str, index, chr) {
   if (index > str.length - 1) return str;
   return str.substring(0, index) + chr + str.substring(index + 1);
