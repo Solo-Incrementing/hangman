@@ -49,6 +49,8 @@ function guessLetter(guess) {
     }
   }
 
+  updateDisplay();
+
   if (!letterFound) {
     strikes++;
   }
@@ -59,10 +61,10 @@ function guessLetter(guess) {
   }
 
   if (strikes >= maxStrikes) {
+    revealedWord = currentWord;
+    updateDisplay();
     wordNotFound();
   }
-
-  word.innerText = revealedWord;
 }
 
 function wordFound() {
@@ -71,9 +73,9 @@ function wordFound() {
     highScoreValue = scoreValue;
   }
 
-  updateScoreDisplay();
-  console.log('Congratulations! You found the word!');
-  initializeNewWord();
+  setTimeout(() => { alert('Congratulations! You found the word!'); }, 200);
+  setTimeout(() => { initializeNewWord(); updateDisplay(); }, 400);
+  ;
 }
 
 function wordNotFound() {
@@ -83,9 +85,13 @@ function wordNotFound() {
 
   scoreValue = 0;
 
+  setTimeout(() => { alert('You didn\'t guess in time!'); }, 200);
+  setTimeout(() => { initializeNewWord(); updateDisplay(); }, 400);
+}
+
+function updateDisplay() {
+  word.innerText = revealedWord;
   updateScoreDisplay();
-  console.log('You didn\'t guess in time!');
-  initializeNewWord();
 }
 
 function updateScoreDisplay() {
@@ -98,10 +104,9 @@ function setCharAt(str, index, chr) {
   return str.substring(0, index) + chr + str.substring(index + 1);
 }
 
-initializeNewWord()
-
 const letterButtons = document.getElementsByClassName('letter-button');
 
+initializeNewWord()
 for (let i = 0; i < letterButtons.length; ++i) {
   letterButtons[i].addEventListener('click', (event) => {
     guessLetter(event.target.dataset.letter);
