@@ -1,3 +1,75 @@
 .game-screen-container {
   padding: 2rem;
 }
+
+#blackboard {
+  display: grid;
+  grid-template-columns: 4fr 1fr;
+}
+
+#wordsPlayContainer {
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+}
+
+#wordContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#word {
+  font-size: 2rem;
+  letter-spacing: 1rem;
+}
+
+#letters-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  padding: 2rem;
+}
+
+.letter-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+  background-color: #303030;
+  width: 3rem;
+  height: 3rem;
+  text-align: center;
+}
+
+#gameInfoContainer {
+  display: grid;
+  grid-template-rows: 1fr 4fr;
+}
+
+#statsContainer {
+  background-color: #303030;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  text-align: center;
+}
+
+.stat {
+  width: 300px;
+  flex-shrink: 0;
+  font-size: 2rem;
+}
+
+#hangmanContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.hangman-limb {
+  background-color: white;
+  width: 200px;
+  height: 10px;
+}
