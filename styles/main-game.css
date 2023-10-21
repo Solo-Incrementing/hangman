@@ -71,12 +71,22 @@
 #hangmanContainer {
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  gap: 20px;
   align-items: center;
+  padding-top: 40px;
 }
 
 .hangman-limb {
   background-color: white;
+  color: white;
   width: 200px;
   height: 10px;
+}
+
+.limb-9 {
+  background-color: orange;
+}
+
+.limb-10 {
+  background-color: crimson;
 }

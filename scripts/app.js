@@ -2,6 +2,7 @@ const lettersContainer = document.getElementById('lettersContainer');
 const highScore = document.getElementById('highScore');
 const score = document.getElementById('score');
 const word = document.getElementById('word');
+const hangmanLimbs = document.getElementsByClassName('hangman-limb');
 
 const wordList = ["app", "pop", "up", "dad", "mum", "sue", "cue", "eye", "wow"];
 
@@ -24,7 +25,14 @@ for (letterIndex in alphabet) {
   lettersContainer.append(newLetterButton);
 }
 
+function resetHangman() {
+  for (let i = 0; i < hangmanLimbs.length; ++i) {
+    hangmanLimbs[i].style.display = 'none';
+  }
+}
+
 function initializeNewWord() {
+  resetHangman();
   const randomNum = Math.floor(Math.random() * wordList.length);
   currentWord = wordList[randomNum];
   revealedWord = "";
@@ -53,6 +61,7 @@ function guessLetter(guess) {
 
   if (!letterFound) {
     strikes++;
+    hangmanLimbs[strikes - 1].style.display = 'block';
   }
   else {
     if (!revealedWord.includes('_')) {
