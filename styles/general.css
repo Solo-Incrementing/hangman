@@ -5,3 +5,17 @@
   margin: 0;
   box-sizing: border-box;
 }
+
+body {
+  background-color: #909090;
+  color: #fff;
+}
+
+#gameAppContainer {
+  background-color: black;
+  min-width: 1200px;
+  width: 50vh;
+  min-height: 600px;
+  height: 50vh;
+  margin: 4rem auto;
+}
