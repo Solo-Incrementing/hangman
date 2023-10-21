@@ -13,9 +13,7 @@ body {
 
 #gameAppContainer {
   background-color: black;
-  max-width: 1200px;
-  width: auto;
-  max-height: 600px;
-  height: auto;
+  width: 1200px;
+  height: 500px;
   margin: 4rem auto;
 }
