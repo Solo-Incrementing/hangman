@@ -77,16 +77,70 @@
 }
 
 .hangman-limb {
+  position: absolute;
   background-color: white;
   color: white;
   width: 200px;
   height: 10px;
 }
 
+.limb-1 {
+  transform: translateY(300px);
+}
+
+.limb-2 {
+  transform: translateX(-50px) translateY(200px) rotate(90deg);
+}
+
+.limb-3 {
+  width: 100px;
+  transform: translateX(5px) translateY(105px);
+}
+
+.limb-4 {
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  transform: translateX(40px) translateY(145px);
+}
+
+.limb-5 {
+  height: 10px;
+  width: 60px;
+  border-radius: 20px;
+  transform: translateX(40px) translateY(200px) rotate(90deg);
+}
+
+.limb-6 {
+  height: 10px;
+  width: 40px;
+  border-radius: 20px;
+  transform: translateX(55px) translateY(200px) rotate(45deg);
+}
+
+.limb-7 {
+  height: 10px;
+  width: 40px;
+  border-radius: 20px;
+  transform: translateX(25px) translateY(200px) rotate(-45deg);
+}
+
+.limb-8 {
+  height: 10px;
+  width: 50px;
+  border-radius: 20px;
+  transform: translateX(33px) translateY(245px) rotate(-70deg);
+}
+
 .limb-9 {
-  background-color: orange;
+  height: 10px;
+  width: 50px;
+  border-radius: 20px;
+  transform: translateX(48px) translateY(245px) rotate(70deg);
 }
 
 .limb-10 {
-  background-color: crimson;
+  width: 40px;
+  height: 5px;
+  transform: translateX(40px) translateY(125px) rotate(90deg);
 }

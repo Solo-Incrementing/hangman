@@ -4,7 +4,7 @@ const score = document.getElementById('score');
 const word = document.getElementById('word');
 const hangmanLimbs = document.getElementsByClassName('hangman-limb');
 
-const wordList = ["app", "pop", "up", "dad", "mum", "sue", "cue", "eye", "wow"];
+const wordList = ["red", "blue", "orange", "yellow", "purple", "brown", "pink"];
 
 let currentWord = "";
 let revealedWord = "";
@@ -32,6 +32,9 @@ function resetHangman() {
 }
 
 function initializeNewWord() {
+  for (let i = 0; i < letterButtons.length; ++i) {
+    letterButtons[i].style.display = 'block';
+  }
   resetHangman();
   const randomNum = Math.floor(Math.random() * wordList.length);
   currentWord = wordList[randomNum];
@@ -46,12 +49,12 @@ function initializeNewWord() {
 }
 
 
-function guessLetter(guess) {
+function guessLetter(event) {
   let letterFound = false;
 
   for (let i = 0; i < currentWord.length; ++i) {
 
-    if (currentWord[i] === guess) {
+    if (currentWord[i] === event.target.dataset.letter) {
       letterFound = true;
       revealedWord = setCharAt(revealedWord, i, currentWord[i]);
     }
@@ -64,6 +67,7 @@ function guessLetter(guess) {
     hangmanLimbs[strikes - 1].style.display = 'block';
   }
   else {
+    event.target.style.display = 'none';
     if (!revealedWord.includes('_')) {
       wordFound()
     }
@@ -118,6 +122,6 @@ const letterButtons = document.getElementsByClassName('letter-button');
 initializeNewWord()
 for (let i = 0; i < letterButtons.length; ++i) {
   letterButtons[i].addEventListener('click', (event) => {
-    guessLetter(event.target.dataset.letter);
+    guessLetter(event);
   });
 }
