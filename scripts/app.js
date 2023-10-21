@@ -45,7 +45,6 @@ function initializeNewWord() {
 
   word.innerText = revealedWord;
   strikes = 0;
-  console.log(currentWord);
 }
 
 
