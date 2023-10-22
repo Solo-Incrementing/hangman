@@ -11,7 +11,7 @@ body {
   color: #fff;
 }
 
-#gameAppContainer {
+.outer-container {
   background-color: black;
   width: 1200px;
   height: 500px;
