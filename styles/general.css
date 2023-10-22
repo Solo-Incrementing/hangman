@@ -13,6 +13,9 @@ body {
 
 .outer-container {
   background-color: black;
+  background-image: url("../images/blackboard.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
   width: 1200px;
   height: 600px;
   margin: 4rem auto;
