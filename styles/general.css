@@ -12,8 +12,9 @@ body {
 }
 
 .outer-container {
+  position: absolute;
   background-color: black;
   width: 1200px;
-  height: 500px;
+  height: 600px;
   margin: 4rem auto;
 }
