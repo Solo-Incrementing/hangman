@@ -66,7 +66,6 @@ function guessLetter(event) {
     hangmanLimbs[strikes - 1].style.display = 'block';
   }
   else {
-    event.target.style.display = 'none';
     if (!revealedWord.includes('_')) {
       wordFound()
     }
@@ -122,5 +121,6 @@ initializeNewWord()
 for (let i = 0; i < letterButtons.length; ++i) {
   letterButtons[i].addEventListener('click', (event) => {
     guessLetter(event);
+    event.target.style.display = 'none';
   });
 }
