@@ -5,8 +5,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="./styles/general.css">
-  <link rel="stylesheet" href="./styles/main-game.css">
   <link rel="stylesheet" href="./styles/main-menu.css">
+  <link rel="stylesheet" href="./styles/category-menu.css">
+  <link rel="stylesheet" href="./styles/main-game.css">
+
   <script src="./scripts/app.js" defer></script>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -21,15 +23,17 @@
     <div id="mainMenuContentContainer" class="content-container">
       <div id="mainMenuTitle">Hangman</div>
       <div id="mainMenuButtonsContainer">
-        <button id="normalModeButton" class="main-menu-button">Normal</button>
-        <button id="hardcodeModeButton" class="main-menu-button">Hardcore</button>
+        <button id="normalModeButton" class="menu-button">Normal</button>
+        <button id="hardcodeModeButton" class="menu-button">Hardcore</button>
       </div>
     </div>
-    <div id="categoryButtonsContainer" class="content-container">
-      <button id="categoryButton" data-name="colours">Colours</button>
-      <button id="categoryButton" data-name="animals">Animals</button>
-      <button id="categoryButton" data-name="countries">Countries</button>
-      <button id="categoryButton" data-name="chemical-elements">Chemical Elements</button>
+    <div id="categoryMenuContentContainer" class="content-container">
+      <div id="categoryMenuButtonsContainer">
+        <button id="categoryButton" data-name="colours" class="menu-button">Colours</button>
+        <button id="categoryButton" data-name="animals" class="menu-button">Animals</button>
+        <button id="categoryButton" data-name="countries" class="menu-button">Countries</button>
+        <button id="categoryButton" data-name="fruits" class="menu-button">Fruits</button>
+      </div>
     </div>
     <div id="mainGameContainer" class="content-container">
       <div id="blackboard">
