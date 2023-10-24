@@ -1,3 +1,7 @@
+#mainGameContainer {
+  z-index: 1;
+}
+
 #blackboard {
   display: grid;
   grid-template-columns: 4fr 1fr;
