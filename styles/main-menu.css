@@ -1,0 +1,46 @@
+#mainMenuContentContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  row-gap: 100px;
+}
+
+#mainMenuButtonsContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  row-gap: 50px
+}
+
+#mainMenuTitle {
+  font-size: 5rem;
+  font-family: inherit;
+  font-weight: bold;
+  letter-spacing: 4px;
+  text-decoration: underline;
+}
+
+.main-menu-button {
+  background-color: transparent;
+  border: 4px dashed;
+  border-radius: 20px;
+  color: #fff;
+  font-size: 3.5rem;
+  font-family: inherit;
+  font-weight: bold;
+  letter-spacing: 4px;
+  width: 400px;
+  height: 100px;
+}
+
+.main-menu-button:hover {
+  font-size: 4rem;
+  border-style: solid;
+}
+
+.main-menu-button:active {
+  font-size: 3.4rem;
+}

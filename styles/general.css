@@ -21,3 +21,7 @@ body {
   height: 600px;
   margin: 4rem auto;
 }
+
+.content-container {
+  padding: 2rem;
+}

@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="./styles/general.css">
   <link rel="stylesheet" href="./styles/main-game.css">
+  <link rel="stylesheet" href="./styles/main-menu.css">
   <script src="./scripts/app.js" defer></script>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -17,11 +18,16 @@
 
 <body>
   <div id="mainMenuContainer" class="outer-container">
-    <button id="normalModeButton">Normal</button>
-    <button id="hardcodeModeButton">Hardcore</button>
+    <div id="mainMenuContentContainer" class="content-container">
+      <div id="mainMenuTitle">Hangman</div>
+      <div id="mainMenuButtonsContainer">
+        <button id="normalModeButton" class="main-menu-button">Normal</button>
+        <button id="hardcodeModeButton" class="main-menu-button">Hardcore</button>
+      </div>
+    </div>
   </div>
   <div id="categoryMenuContainer" class="outer-container">
-    <div id="categoryButtonsContainer">
+    <div id="categoryButtonsContainer" class="content-container">
       <button id="categoryButton" data-name="colours">Colours</button>
       <button id="categoryButton" data-name="animals">Animals</button>
       <button id="categoryButton" data-name="countries">Countries</button>
@@ -29,7 +35,7 @@
     </div>
   </div>
   <div id="gameAppContainer" class="outer-container">
-    <div id="mainGameContainer" class="game-screen-container">
+    <div id="mainGameContainer" class="content-container">
       <div id="blackboard">
         <div id="wordsPlayContainer">
           <div id="wordContainer">
