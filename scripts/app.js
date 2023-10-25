@@ -31,19 +31,26 @@ function resetHangman() {
   }
 }
 
-function initializeNewWord() {
+function resetLetterButtons() {
   for (let i = 0; i < letterButtons.length; ++i) {
     letterButtons[i].style.display = 'block';
   }
-  resetHangman();
+}
+
+function initNewWord() {
   const randomNum = Math.floor(Math.random() * wordList.length);
   currentWord = wordList[randomNum];
   revealedWord = "";
   for (let i = 0; i < currentWord.length; ++i) {
     revealedWord += "_";
   }
-
   word.innerText = revealedWord;
+}
+
+function initGame() {
+  resetLetterButtons();
+  resetHangman();
+  initNewWord();
   strikes = 0;
 }
 
@@ -85,7 +92,7 @@ function wordFound() {
   }
 
   setTimeout(() => { alert('Congratulations! You found the word!'); }, 200);
-  setTimeout(() => { initializeNewWord(); updateDisplay(); }, 400);
+  setTimeout(() => { initGame(); updateDisplay(); }, 400);
   ;
 }
 
@@ -97,7 +104,7 @@ function wordNotFound() {
   scoreValue = 0;
 
   setTimeout(() => { alert('You didn\'t guess in time!'); }, 200);
-  setTimeout(() => { initializeNewWord(); updateDisplay(); }, 400);
+  setTimeout(() => { initGame(); updateDisplay(); }, 400);
 }
 
 function updateDisplay() {
@@ -119,7 +126,8 @@ function setCharAt(str, index, chr) {
 
 const letterButtons = document.getElementsByClassName('letter-button');
 
-initializeNewWord()
+initGame();
+
 for (let i = 0; i < letterButtons.length; ++i) {
   letterButtons[i].addEventListener('click', (event) => {
     guessLetter(event);
