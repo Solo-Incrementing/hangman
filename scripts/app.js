@@ -43,6 +43,7 @@ async function initNormalMode(categoryName) {
     .then((response) => response.json())
     .then((json) => {
       wordList = json.categories[categoryName];
+      capitalizeWordList();
     });
   console.log('category list loaded, initiliazing game');
   initGame();
@@ -57,7 +58,7 @@ function createLetterButtons() {
     const newLetterButton = document.createElement('button');
     const newLetter = document.createElement('letter');
     newLetterButton.classList.add('letter-button');
-    newLetterButton.setAttribute('data-letter', alphabet[letterIndex]);
+    newLetterButton.setAttribute('data-letter', alphabet[letterIndex].toUpperCase());
     newLetter.classList.add('letter');
     newLetter.innerText = alphabet[letterIndex].toUpperCase();
     newLetterButton.append(newLetter);
@@ -84,7 +85,12 @@ function initNewWord() {
   currentWord = wordList[randomNum];
   revealedWord = "";
   for (let i = 0; i < currentWord.length; ++i) {
-    revealedWord += "_";
+    if (currentWord[i] !== " ") {
+      revealedWord += "_";
+    }
+    else {
+      revealedWord += " ";
+    }
   }
   word.innerText = revealedWord;
 }
@@ -206,6 +212,12 @@ function setCharAt(str, index, chr) {
 function hideAllScreens() {
   for (let i = 0; i < contentContainers.length; ++i) {
     contentContainers[i].style.display = 'none';
+  }
+}
+
+function capitalizeWordList() {
+  for (let i = 0; i < wordList.length; ++i) {
+    wordList[i] = wordList[i].toUpperCase();
   }
 }
 
