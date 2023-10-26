@@ -20,6 +20,7 @@ const highScore = document.getElementById('highScore');
 const score = document.getElementById('score');
 const word = document.getElementById('word');
 const hangmanLimbs = document.getElementsByClassName('hangman-limb');
+let letterButtons;
 
 // main game variables
 let currentWord = "";
@@ -29,9 +30,25 @@ const maxStrikes = 10;
 let scoreValue = 0;
 let highScoreValue = 0;
 
-const wordList = ["red", "blue", "orange", "yellow", "purple", "brown", "pink"]; //these array values are just fallbacks in case fetch for data fails
+let wordList = ["red", "blue", "orange", "yellow", "purple", "brown", "pink"]; //these array values are just fallbacks in case fetch for data fails
 const alphabet = "abcdefghijklmnopqrstuvwxyz";
 
+
+// MAIN GAME INITIALIZATION:
+
+async function initNormalMode(categoryName) {
+  console.log('loading screen active');
+  goToLoadingScreen();
+  await fetch('../hangman-data.json')
+    .then((response) => response.json())
+    .then((json) => {
+      wordList = json.categories[categoryName];
+    });
+  console.log('category list loaded, initiliazing game');
+  initGame();
+  console.log('main game screen active');
+  goToMainGame();
+}
 
 // MAIN GAME FUNCTIONS:
 
@@ -46,6 +63,8 @@ function createLetterButtons() {
     newLetterButton.append(newLetter);
     letterButtonsContainer.append(newLetterButton);
   }
+
+  letterButtons = document.getElementsByClassName('letter-button');
 }
 
 function resetHangman() {
@@ -56,7 +75,7 @@ function resetHangman() {
 
 function resetLetterButtons() {
   for (let i = 0; i < letterButtons.length; ++i) {
-    letterButtons[i].style.display = 'block';
+    letterButtons[i].style.display = 'flex';
   }
 }
 
@@ -72,6 +91,7 @@ function initNewWord() {
 
 function initGame() {
   createLetterButtons();
+  initMainGameEventListeners();
   startGame();
 }
 
@@ -80,6 +100,16 @@ function startGame() {
   resetHangman();
   initNewWord();
   strikes = 0;
+}
+
+function initMainGameEventListeners() {
+  for (let i = 0; i < letterButtons.length; ++i) {
+    letterButtons[i].addEventListener('click', (event) => {
+      console.log('letter button clicked');
+      guessLetter(event);
+      event.target.style.display = 'none';
+    });
+  }
 }
 
 function guessLetter(event) {
@@ -148,23 +178,22 @@ function updateScoreDisplay() {
 
 function goToMainMenu() {
   hideAllScreens();
-  mainMenuContentContainer.style.visibility = 'visible';
+  mainMenuContentContainer.style.display = 'block';
 }
 
 function goToCategorySelectionMenu() {
   hideAllScreens();
-  categoryMenuContentContainer.style.visibility = 'visible';
+  categoryMenuContentContainer.style.display = 'block';
 }
 
 function goToLoadingScreen() {
   hideAllScreens();
-  loadingScreenContentContainer.style.visibility = 'visible';
-  console.log('loading screen on');
+  loadingScreenContentContainer.style.display = 'block';
 }
 
 function goToMainGame() {
   hideAllScreens();
-  mainGameContainer.style.visibility = 'visible';
+  mainGameContainer.style.display = 'block';
 }
 
 // helper functions
@@ -176,21 +205,8 @@ function setCharAt(str, index, chr) {
 
 function hideAllScreens() {
   for (let i = 0; i < contentContainers.length; ++i) {
-    contentContainers[i].style.visibility = 'hidden';
+    contentContainers[i].style.display = 'none';
   }
-}
-
-const letterButtons = document.getElementsByClassName('letter-button');
-
-startGame();
-
-// main game event listeners
-
-for (let i = 0; i < letterButtons.length; ++i) {
-  letterButtons[i].addEventListener('click', (event) => {
-    guessLetter(event);
-    event.target.style.display = 'none';
-  });
 }
 
 // navigation event listeners
@@ -203,7 +219,6 @@ hardcoreModeButton.addEventListener('click', (event) => {
 
 for (let i = 0; i < categoryButtons.length; ++i) {
   categoryButtons[i].addEventListener('click', (event) => {
-    goToLoadingScreen();
-    setTimeout(goToMainGame, 3000);
+    initNormalMode(event.target.dataset.name);
   });
 }
