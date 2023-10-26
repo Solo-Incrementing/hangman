@@ -137,9 +137,11 @@ function letterButtonClicked(event) {
   if (!letterFound) {
     (scoreValue - 1 < 0) ? scoreValue = 0 : scoreValue--;
     strikes++;
-    hangmanLimbs[strikes - 1].style.display = 'block';
 
-    if (strikes >= maxStrikes) {
+    if (strikes <= maxStrikes) {
+      hangmanLimbs[strikes - 1].style.display = 'block';
+    }
+    else {
       revealedWord = currentWord;
       wordNotFound();
     }
