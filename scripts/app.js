@@ -112,13 +112,35 @@ function initMainGameEventListeners() {
   for (let i = 0; i < letterButtons.length; ++i) {
     letterButtons[i].addEventListener('click', (event) => {
       console.log('letter button clicked');
-      guessLetter(event);
+      letterButtonClicked(event);
       event.target.style.display = 'none';
     });
   }
 }
 
-function guessLetter(event) {
+function letterButtonClicked(event) {
+  let letterFound = false;
+
+  letterFound = findLetterInWord(event.target.dataset.letter);
+
+  if (!letterFound) {
+    strikes++;
+    hangmanLimbs[strikes - 1].style.display = 'block';
+
+    if (strikes >= maxStrikes) {
+      revealedWord = currentWord;
+      updateDisplay();
+      wordNotFound();
+    }
+  }
+  else {
+    if (!revealedWord.includes('_')) {
+      wordFound()
+    }
+  }
+}
+
+function findLetterInWord(letter) {
   let letterFound = false;
 
   for (let i = 0; i < currentWord.length; ++i) {
@@ -129,23 +151,7 @@ function guessLetter(event) {
     }
   }
 
-  updateDisplay();
-
-  if (!letterFound) {
-    strikes++;
-    hangmanLimbs[strikes - 1].style.display = 'block';
-  }
-  else {
-    if (!revealedWord.includes('_')) {
-      wordFound()
-    }
-  }
-
-  if (strikes >= maxStrikes) {
-    revealedWord = currentWord;
-    updateDisplay();
-    wordNotFound();
-  }
+  return letterFound;
 }
 
 function wordFound() {
