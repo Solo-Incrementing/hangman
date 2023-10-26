@@ -123,8 +123,8 @@ function startGame() {
 function initMainGameEventListeners() {
   for (let i = 0; i < letterButtons.length; ++i) {
     letterButtons[i].addEventListener('click', (event) => {
-      letterButtonClicked(event);
       event.target.style.display = 'none';
+      letterButtonClicked(event);
     });
   }
 }
@@ -175,7 +175,7 @@ function wordFound() {
     highScoreValue = scoreValue;
   }
 
-  alert(`Congratulations! You found the word! It was ${currentWord}`);
+  console.log(`Congratulations! You found the word! It was ${currentWord}`);
   startGame();
   ;
 }
@@ -187,7 +187,7 @@ function wordNotFound() {
 
   scoreValue = 0;
 
-  alert(`You didn't guess in time! The correct answer was ${currentWord}`);
+  console.log(`You didn't guess in time! The correct answer was ${currentWord}`);
   startGame();
 }
 
