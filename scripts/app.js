@@ -153,6 +153,7 @@ function letterButtonClicked(event) {
     }
   }
 
+  updateHighScore();
   updateDisplay();
 }
 
@@ -171,9 +172,7 @@ function findLetterInWord(letter) {
 }
 
 function wordFound() {
-  if (highScoreValue < scoreValue) {
-    highScoreValue = scoreValue;
-  }
+  updateHighScore();
 
   console.log(`Congratulations! You found the word! It was ${currentWord}`);
   startGame();
@@ -181,14 +180,17 @@ function wordFound() {
 }
 
 function wordNotFound() {
-  if (highScoreValue < scoreValue) {
-    highScoreValue = scoreValue;
-  }
-
+  updateHighScore();
   scoreValue = 0;
 
   console.log(`You didn't guess in time! The correct answer was ${currentWord}`);
   startGame();
+}
+
+function updateHighScore() {
+  if (highScoreValue < scoreValue) {
+    highScoreValue = scoreValue;
+  }
 }
 
 function updateDisplay() {
