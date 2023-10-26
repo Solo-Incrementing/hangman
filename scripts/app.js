@@ -1,11 +1,20 @@
+// main menu elements
+const mainMenuContentContainer = document.getElementById('mainMenuContentContainer');
+const normalModeButton = document.getElementById('normalModeButton');
+const hardcoreModeButton = document.getElementById('hardcoreModeButton');
+
+// category menu elements
+const categoryMenuContentContainer = document.getElementById('categoryMenuContentContainer');
+const categoryButtons = document.getElementsByClassName('js-category-button');
+
+// main game elements
 const lettersContainer = document.getElementById('lettersContainer');
 const highScore = document.getElementById('highScore');
 const score = document.getElementById('score');
 const word = document.getElementById('word');
 const hangmanLimbs = document.getElementsByClassName('hangman-limb');
 
-const wordList = ["red", "blue", "orange", "yellow", "purple", "brown", "pink"];
-
+// main game variables
 let currentWord = "";
 let revealedWord = "";
 let strikes = 0;
@@ -13,16 +22,20 @@ const maxStrikes = 10;
 let scoreValue = 0;
 let highScoreValue = 0;
 
+const wordList = ["red", "blue", "orange", "yellow", "purple", "brown", "pink"]; //these array values are just fallbacks in case fetch for data fails
 const alphabet = "abcdefghijklmnopqrstuvwxyz";
-for (letterIndex in alphabet) {
-  const newLetterButton = document.createElement('button');
-  const newLetter = document.createElement('letter');
-  newLetterButton.classList.add('letter-button');
-  newLetterButton.setAttribute('data-letter', alphabet[letterIndex]);
-  newLetter.classList.add('letter');
-  newLetter.innerText = alphabet[letterIndex].toUpperCase();
-  newLetterButton.append(newLetter);
-  lettersContainer.append(newLetterButton);
+
+function createLetterButtons() {
+  for (letterIndex in alphabet) {
+    const newLetterButton = document.createElement('button');
+    const newLetter = document.createElement('letter');
+    newLetterButton.classList.add('letter-button');
+    newLetterButton.setAttribute('data-letter', alphabet[letterIndex]);
+    newLetter.classList.add('letter');
+    newLetter.innerText = alphabet[letterIndex].toUpperCase();
+    newLetterButton.append(newLetter);
+    lettersContainer.append(newLetterButton);
+  }
 }
 
 function resetHangman() {
@@ -48,6 +61,11 @@ function initNewWord() {
 }
 
 function initGame() {
+  createLetterButtons();
+  startGame();
+}
+
+function startGame() {
   resetLetterButtons();
   resetHangman();
   initNewWord();
@@ -92,7 +110,7 @@ function wordFound() {
   }
 
   setTimeout(() => { alert('Congratulations! You found the word!'); }, 200);
-  setTimeout(() => { initGame(); updateDisplay(); }, 400);
+  setTimeout(() => { startGame(); updateDisplay(); }, 400);
   ;
 }
 
@@ -104,7 +122,7 @@ function wordNotFound() {
   scoreValue = 0;
 
   setTimeout(() => { alert('You didn\'t guess in time!'); }, 200);
-  setTimeout(() => { initGame(); updateDisplay(); }, 400);
+  setTimeout(() => { startGame(); updateDisplay(); }, 400);
 }
 
 function updateDisplay() {
@@ -126,7 +144,7 @@ function setCharAt(str, index, chr) {
 
 const letterButtons = document.getElementsByClassName('letter-button');
 
-initGame();
+startGame();
 
 for (let i = 0; i < letterButtons.length; ++i) {
   letterButtons[i].addEventListener('click', (event) => {
