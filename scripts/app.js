@@ -159,6 +159,7 @@ function goToCategorySelectionMenu() {
 function goToLoadingScreen() {
   hideAllScreens();
   loadingScreenContentContainer.style.visibility = 'visible';
+  console.log('loading screen on');
 }
 
 function goToMainGame() {
@@ -183,9 +184,26 @@ const letterButtons = document.getElementsByClassName('letter-button');
 
 startGame();
 
+// main game event listeners
+
 for (let i = 0; i < letterButtons.length; ++i) {
   letterButtons[i].addEventListener('click', (event) => {
     guessLetter(event);
     event.target.style.display = 'none';
+  });
+}
+
+// navigation event listeners
+
+normalModeButton.addEventListener('click', goToCategorySelectionMenu);
+hardcoreModeButton.addEventListener('click', (event) => {
+  goToLoadingScreen();
+  setTimeout(goToMainGame, 3000);
+});
+
+for (let i = 0; i < categoryButtons.length; ++i) {
+  categoryButtons[i].addEventListener('click', (event) => {
+    goToLoadingScreen();
+    setTimeout(goToMainGame, 3000);
   });
 }
