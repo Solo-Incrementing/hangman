@@ -30,14 +30,15 @@ const maxStrikes = 10;
 let scoreValue = 0;
 let highScoreValue = 0;
 
-let wordList = ["red", "blue", "orange", "yellow", "purple", "brown", "pink"]; //these array values are just fallbacks in case fetch for data fails
+let wordList = ["one", "two", "three", "four", "five", "six", "seven"]; //these array values are just fallbacks in case fetch for data fails
 const alphabet = "abcdefghijklmnopqrstuvwxyz";
 
+let numberOfWordsInPlay;
+let newGameSessionStarted = true;
 
 // MAIN GAME INITIALIZATION:
 
 async function initNormalMode(categoryName) {
-  console.log('loading screen active');
   goToLoadingScreen();
   await fetch('../hangman-data.json')
     .then((response) => response.json())
@@ -45,9 +46,7 @@ async function initNormalMode(categoryName) {
       wordList = json.categories[categoryName];
       capitalizeWordList();
     });
-  console.log('category list loaded, initiliazing game');
   initGame();
-  console.log('main game screen active');
   goToMainGame();
 }
 
@@ -81,9 +80,18 @@ function resetLetterButtons() {
 }
 
 function initNewWord() {
-  const randomNum = Math.floor(Math.random() * wordList.length);
-  currentWord = wordList[randomNum];
+  if (newGameSessionStarted) {
+    newGameSessionStarted = false;
+    numberOfWordsInPlay = wordList.length;
+  }
+
+  const randomNum = Math.floor(Math.random() * numberOfWordsInPlay);
+  currentWord = wordList.splice(randomNum, 1)[0];
+  wordList.push(currentWord);
+  numberOfWordsInPlay--;
+
   revealedWord = "";
+
   for (let i = 0; i < currentWord.length; ++i) {
     if (currentWord[i] !== " ") {
       revealedWord += "_";
@@ -98,6 +106,7 @@ function initNewWord() {
 function initGame() {
   createLetterButtons();
   initMainGameEventListeners();
+  newGameSessionStarted = true;
   startGame();
 }
 
@@ -106,12 +115,12 @@ function startGame() {
   resetHangman();
   initNewWord();
   strikes = 0;
+  updateDisplay();
 }
 
 function initMainGameEventListeners() {
   for (let i = 0; i < letterButtons.length; ++i) {
     letterButtons[i].addEventListener('click', (event) => {
-      console.log('letter button clicked');
       letterButtonClicked(event);
       event.target.style.display = 'none';
     });
@@ -129,7 +138,6 @@ function letterButtonClicked(event) {
 
     if (strikes >= maxStrikes) {
       revealedWord = currentWord;
-      updateDisplay();
       wordNotFound();
     }
   }
@@ -138,6 +146,8 @@ function letterButtonClicked(event) {
       wordFound()
     }
   }
+
+  updateDisplay();
 }
 
 function findLetterInWord(letter) {
@@ -145,7 +155,7 @@ function findLetterInWord(letter) {
 
   for (let i = 0; i < currentWord.length; ++i) {
 
-    if (currentWord[i] === event.target.dataset.letter) {
+    if (currentWord[i] === letter) {
       letterFound = true;
       revealedWord = setCharAt(revealedWord, i, currentWord[i]);
     }
@@ -160,8 +170,8 @@ function wordFound() {
     highScoreValue = scoreValue;
   }
 
-  setTimeout(() => { alert('Congratulations! You found the word!'); }, 200);
-  setTimeout(() => { startGame(); updateDisplay(); }, 400);
+  alert(`Congratulations! You found the word! It was ${currentWord}`);
+  startGame();
   ;
 }
 
@@ -172,8 +182,8 @@ function wordNotFound() {
 
   scoreValue = 0;
 
-  setTimeout(() => { alert('You didn\'t guess in time!'); }, 200);
-  setTimeout(() => { startGame(); updateDisplay(); }, 400);
+  alert(`You didn't guess in time! The correct answer was ${currentWord}`);
+  startGame();
 }
 
 function updateDisplay() {
