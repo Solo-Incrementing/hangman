@@ -101,6 +101,8 @@ function initNewWord() {
     }
   }
   word.innerText = revealedWord;
+
+  console.log(currentWord);
 }
 
 function initGame() {
@@ -133,6 +135,7 @@ function letterButtonClicked(event) {
   letterFound = findLetterInWord(event.target.dataset.letter);
 
   if (!letterFound) {
+    (scoreValue - 1 < 0) ? scoreValue = 0 : scoreValue--;
     strikes++;
     hangmanLimbs[strikes - 1].style.display = 'block';
 
@@ -142,6 +145,7 @@ function letterButtonClicked(event) {
     }
   }
   else {
+    scoreValue++;
     if (!revealedWord.includes('_')) {
       wordFound()
     }
@@ -165,7 +169,6 @@ function findLetterInWord(letter) {
 }
 
 function wordFound() {
-  scoreValue++;
   if (highScoreValue < scoreValue) {
     highScoreValue = scoreValue;
   }
