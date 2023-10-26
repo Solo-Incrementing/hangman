@@ -1,3 +1,6 @@
+// general elements
+const contentContainers = document.getElementsByClassName('js-content-container');
+
 // main menu elements
 const mainMenuContentContainer = document.getElementById('mainMenuContentContainer');
 const normalModeButton = document.getElementById('normalModeButton');
@@ -7,8 +10,12 @@ const hardcoreModeButton = document.getElementById('hardcoreModeButton');
 const categoryMenuContentContainer = document.getElementById('categoryMenuContentContainer');
 const categoryButtons = document.getElementsByClassName('js-category-button');
 
+//loading screen element
+const loadingScreenContentContainer = document.getElementById('loadingScreenContentContainer');
+
 // main game elements
-const lettersContainer = document.getElementById('lettersContainer');
+const mainGameContainer = document.getElementById('mainGameContainer');
+const letterButtonsContainer = document.getElementById('letterButtonsContainer');
 const highScore = document.getElementById('highScore');
 const score = document.getElementById('score');
 const word = document.getElementById('word');
@@ -25,6 +32,9 @@ let highScoreValue = 0;
 const wordList = ["red", "blue", "orange", "yellow", "purple", "brown", "pink"]; //these array values are just fallbacks in case fetch for data fails
 const alphabet = "abcdefghijklmnopqrstuvwxyz";
 
+
+// MAIN GAME FUNCTIONS:
+
 function createLetterButtons() {
   for (letterIndex in alphabet) {
     const newLetterButton = document.createElement('button');
@@ -34,7 +44,7 @@ function createLetterButtons() {
     newLetter.classList.add('letter');
     newLetter.innerText = alphabet[letterIndex].toUpperCase();
     newLetterButton.append(newLetter);
-    lettersContainer.append(newLetterButton);
+    letterButtonsContainer.append(newLetterButton);
   }
 }
 
@@ -71,7 +81,6 @@ function startGame() {
   initNewWord();
   strikes = 0;
 }
-
 
 function guessLetter(event) {
   let letterFound = false;
@@ -135,11 +144,39 @@ function updateScoreDisplay() {
   highScore.innerText = `High Score: ${highScoreValue}`;
 }
 
+// GAME NAVIGATION FUNTIONS:
+
+function goToMainMenu() {
+  hideAllScreens();
+  mainMenuContentContainer.style.visibility = 'visible';
+}
+
+function goToCategorySelectionMenu() {
+  hideAllScreens();
+  categoryMenuContentContainer.style.visibility = 'visible';
+}
+
+function goToLoadingScreen() {
+  hideAllScreens();
+  loadingScreenContentContainer.style.visibility = 'visible';
+}
+
+function goToMainGame() {
+  hideAllScreens();
+  mainGameContainer.style.visibility = 'visible';
+}
+
 // helper functions
 
 function setCharAt(str, index, chr) {
   if (index > str.length - 1) return str;
   return str.substring(0, index) + chr + str.substring(index + 1);
+}
+
+function hideAllScreens() {
+  for (let i = 0; i < contentContainers.length; ++i) {
+    contentContainers[i].style.visibility = 'hidden';
+  }
 }
 
 const letterButtons = document.getElementsByClassName('letter-button');
