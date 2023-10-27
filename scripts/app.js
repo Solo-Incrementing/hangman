@@ -123,8 +123,6 @@ function initNewWord() {
     }
   }
   word.innerText = revealedWord;
-
-  console.log(currentWord);
 }
 
 function initGame() {
@@ -219,8 +217,8 @@ function updateDisplay() {
 }
 
 function updateScoreDisplay() {
-  score.innerText = `Score: ${scoreValue}`;
-  highScore.innerText = `High Score: ${highScoreValue}`;
+  score.innerText = scoreValue;
+  highScore.innerText = highScoreValue;
 }
 
 // GAME NAVIGATION FUNTIONS:
