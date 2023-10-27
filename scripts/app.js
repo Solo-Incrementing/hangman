@@ -127,6 +127,9 @@ function initNewWord() {
 
 function initGame() {
   newGameSessionStarted = true;
+  highScoreValue = localStorage.getItem('highScore');
+  updateHighScore();
+  updateScoreDisplay();
   startGame();
 }
 
@@ -194,7 +197,6 @@ function wordFound() {
 
   console.log(`Congratulations! You found the word! It was ${currentWord}`);
   startGame();
-  ;
 }
 
 function wordNotFound() {
@@ -209,6 +211,8 @@ function updateHighScore() {
   if (highScoreValue < scoreValue) {
     highScoreValue = scoreValue;
   }
+
+  localStorage.setItem('highScore', highScoreValue);
 }
 
 function updateDisplay() {
@@ -281,3 +285,7 @@ mainGameHomeButton.addEventListener('click', goToMainMenu);
 
 createLetterButtons();
 initMainGameEventListeners();
+
+if (!localStorage.getItem('highScore')) {
+  localStorage.setItem('highScore', highScoreValue);
+}
