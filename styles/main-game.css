@@ -144,3 +144,53 @@
   height: 5px;
   transform: translateX(40px) translateY(125px) rotate(90deg);
 }
+
+#mainGameNav {
+  text-align: right;
+}
+
+#mainGameHomeButton {
+  position: relative;
+  border-style: hidden;
+  width: 200px;
+  height: 100px;
+}
+
+#mainGameHomeButton::after {
+  content: "";
+  width: 0;
+  height: 2px;
+  background-color: #fff;
+  transform-origin: left;
+  transition: width 0.25s;
+}
+
+#mainGameHomeButton::after:hover {
+  content: "";
+  width: 200px;
+  height: 2px;
+  background-color: #fff;
+}
+
+#mainGameHomeButton {
+  position: relative;
+  color: #fff;
+}
+
+#mainGameHomeButton::after {
+  content: '';
+  position: absolute;
+  width: 80%;
+  transform: scaleX(0);
+  height: 2px;
+  bottom: 20px;
+  left: 20px;
+  background-color: #fff;
+  transform-origin: left;
+  transition: transform 0.10s linear;
+}
+
+#mainGameHomeButton:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
