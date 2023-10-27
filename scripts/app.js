@@ -9,6 +9,7 @@ const hardcoreModeButton = document.getElementById('hardcoreModeButton');
 // category menu elements
 const categoryMenuContentContainer = document.getElementById('categoryMenuContentContainer');
 const categoryButtons = document.getElementsByClassName('js-category-button');
+const categoryBackButton = document.getElementById('categoryMenuBackButton');
 
 //loading screen element
 const loadingScreenContentContainer = document.getElementById('loadingScreenContentContainer');
@@ -227,7 +228,7 @@ function updateScoreDisplay() {
 
 function goToMainMenu() {
   hideAllScreens();
-  mainMenuContentContainer.style.display = 'block';
+  mainMenuContentContainer.style.display = 'flex';
 }
 
 function goToCategorySelectionMenu() {
@@ -277,3 +278,5 @@ for (let i = 0; i < categoryButtons.length; ++i) {
     initNormalMode(event.target.dataset.name);
   });
 }
+
+categoryBackButton.addEventListener('click', goToMainMenu);

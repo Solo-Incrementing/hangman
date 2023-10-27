@@ -58,11 +58,11 @@
   bottom: 20px;
   left: 20px;
   background-color: #fff;
-  transform-origin: center;
+  transform-origin: left;
   transition: transform 0.10s linear;
 }
 
 #categoryMenuBackButton:hover::after {
   transform: scaleX(1);
-  transform-origin: center;
+  transform-origin: left;
 }
