@@ -56,7 +56,7 @@ async function initNormalMode(categoryName) {
   }, 2000);
 }
 
-async function initHardcodeMode() {
+async function initHardcoreMode() {
   goToLoadingScreen();
 
   await fetch('../hangman-data.json')
@@ -128,8 +128,6 @@ function initNewWord() {
 }
 
 function initGame() {
-  createLetterButtons();
-  initMainGameEventListeners();
   newGameSessionStarted = true;
   startGame();
 }
@@ -270,8 +268,7 @@ function capitalizeWordList() {
 
 normalModeButton.addEventListener('click', goToCategorySelectionMenu);
 hardcoreModeButton.addEventListener('click', (event) => {
-  initHardcodeMode();
-  setTimeout(goToMainGame, 3000);
+  initHardcoreMode();
 });
 
 for (let i = 0; i < categoryButtons.length; ++i) {
@@ -282,3 +279,7 @@ for (let i = 0; i < categoryButtons.length; ++i) {
 
 categoryBackButton.addEventListener('click', goToMainMenu);
 mainGameHomeButton.addEventListener('click', goToMainMenu);
+
+
+createLetterButtons();
+initMainGameEventListeners();
