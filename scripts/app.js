@@ -43,7 +43,7 @@ let newGameSessionStarted = true;
 async function initNormalMode(categoryName) {
   goToLoadingScreen();
 
-  await fetch('./hangman-data.json')
+  await fetch('https://kriyes-m.github.io/hangman/hangman-data.json')
     .then((response) => response.json())
     .then((json) => {
       wordList = json.categories[categoryName];
@@ -59,7 +59,7 @@ async function initNormalMode(categoryName) {
 async function initHardcoreMode() {
   goToLoadingScreen();
 
-  await fetch('./hangman-data.json')
+  await fetch('https://kriyes-m.github.io/hangman/hangman-data.json')
     .then((response) => response.json())
     .then((json) => {
       wordList = json.hardcoreCategories['tenThousand'];
