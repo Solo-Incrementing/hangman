@@ -40,14 +40,34 @@ let newGameSessionStarted = true;
 
 async function initNormalMode(categoryName) {
   goToLoadingScreen();
+
   await fetch('../hangman-data.json')
     .then((response) => response.json())
     .then((json) => {
       wordList = json.categories[categoryName];
       capitalizeWordList();
     });
-  initGame();
-  goToMainGame();
+
+  setTimeout(() => {
+    initGame();
+    goToMainGame();
+  }, 2000);
+}
+
+async function initHardcodeMode() {
+  goToLoadingScreen();
+
+  await fetch('../hangman-data.json')
+    .then((response) => response.json())
+    .then((json) => {
+      wordList = json.hardcoreCategories['tenThousand'];
+      capitalizeWordList();
+    });
+
+  setTimeout(() => {
+    initGame();
+    goToMainGame();
+  }, 2000);
 }
 
 // MAIN GAME FUNCTIONS:
@@ -248,7 +268,7 @@ function capitalizeWordList() {
 
 normalModeButton.addEventListener('click', goToCategorySelectionMenu);
 hardcoreModeButton.addEventListener('click', (event) => {
-  goToLoadingScreen();
+  initHardcodeMode();
   setTimeout(goToMainGame, 3000);
 });
 
