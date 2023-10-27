@@ -21,6 +21,7 @@ const highScore = document.getElementById('highScore');
 const score = document.getElementById('score');
 const word = document.getElementById('word');
 const hangmanLimbs = document.getElementsByClassName('hangman-limb');
+const mainGameHomeButton = document.getElementById('mainGameHomeButton');
 let letterButtons;
 
 // main game variables
@@ -280,3 +281,4 @@ for (let i = 0; i < categoryButtons.length; ++i) {
 }
 
 categoryBackButton.addEventListener('click', goToMainMenu);
+mainGameHomeButton.addEventListener('click', goToMainMenu);
