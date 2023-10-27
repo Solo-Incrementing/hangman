@@ -1,13 +1,68 @@
 #categoryMenuContentContainer {
   z-index: 9;
-  padding: 5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 2rem;
 }
 
 #categoryMenuButtonsContainer {
   display: grid;
   grid-template: repeat(2, 1fr) / repeat(2, 1fr);
-  row-gap: 50px;
-  column-gap: 50px;
-  height: 80%;
+  row-gap: 20px;
+  column-gap: 20px;
+  height: 60%;
+  width: 70%;
   place-items: center;
+  margin: 0 auto;
+}
+
+#categorySelectionMenuNav {
+  text-align: right;
+}
+
+#categoryMenuBackButton {
+  position: relative;
+  border-style: hidden;
+  width: 200px;
+  height: 100px;
+}
+
+#categoryMenuBackButton::after {
+  content: "";
+  width: 0;
+  height: 2px;
+  background-color: #fff;
+  transform-origin: left;
+  transition: width 0.25s;
+}
+
+#categoryMenuBackButton::after:hover {
+  content: "";
+  width: 200px;
+  height: 2px;
+  background-color: #fff;
+}
+
+#categoryMenuBackButton {
+  position: relative;
+  color: #fff;
+}
+
+#categoryMenuBackButton::after {
+  content: '';
+  position: absolute;
+  width: 80%;
+  transform: scaleX(0);
+  height: 2px;
+  bottom: 20px;
+  left: 20px;
+  background-color: #fff;
+  transform-origin: center;
+  transition: transform 0.10s linear;
+}
+
+#categoryMenuBackButton:hover::after {
+  transform: scaleX(1);
+  transform-origin: center;
 }

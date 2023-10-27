@@ -232,7 +232,7 @@ function goToMainMenu() {
 
 function goToCategorySelectionMenu() {
   hideAllScreens();
-  categoryMenuContentContainer.style.display = 'block';
+  categoryMenuContentContainer.style.display = 'flex';
 }
 
 function goToLoadingScreen() {
