@@ -14,7 +14,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 2px solid white;
   min-width: 140px;
   min-height: 200px;
   max-width: 400px;
@@ -28,7 +27,6 @@
 .hangman-limb {
   position: absolute;
   background-color: white;
-  --scale-multiplier: 2;
 }
 
 #statsContainer {
