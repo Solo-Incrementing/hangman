@@ -127,6 +127,7 @@ function initNewWord() {
 
 function initGame() {
   newGameSessionStarted = true;
+  scoreValue = 0;
   highScoreValue = localStorage.getItem('highScore');
   updateHighScore();
   updateScoreDisplay();
