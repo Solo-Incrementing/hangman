@@ -15,8 +15,8 @@ body {
 .outer-container {
   position: relative;
   width: 1200px;
-  height: 600px;
-  margin: 4rem auto;
+  height: 700px;
+  margin: 1rem auto;
 }
 
 .content-container {
