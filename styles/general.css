@@ -14,9 +14,8 @@ body {
 
 .outer-container {
   position: relative;
-  width: 1200px;
+  min-width: 300px;
   height: 700px;
-  margin: 1rem auto;
 }
 
 .content-container {
@@ -49,4 +48,10 @@ body {
 
 .menu-button:active {
   font-size: 3rem;
+}
+
+@media (max-width: 800px) {
+  .content-container {
+    padding: 1rem;
+  }
 }

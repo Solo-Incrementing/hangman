@@ -1,28 +1,65 @@
 #mainGameContainer {
-  z-index: 7;
+  /* z-index: 7; */
+  z-index: 11;
 }
 
-#blackboard {
-  display: grid;
-  grid-template-columns: 4fr 1fr;
-  height: 100%;
-  width: 100%;
+#gameInfoContainer {
+  display: flex;
+  justify-content: space-evenly;
+  max-height: 200px;
+  gap: 6rem;
 }
 
-#wordsPlayContainer {
-  display: grid;
-  grid-template-rows: 1fr 1fr;
-}
-
-#wordContainer {
+#hangmanContainer {
+  flex: 1 0 140px;
   display: flex;
   justify-content: center;
   align-items: center;
+  border: 2px solid white;
+  min-width: 140px;
+  min-height: 200px;
+  max-width: 400px;
+  max-height: 400px;
+}
+
+#limbs-container {
+  position: relative;
+}
+
+.hangman-limb {
+  position: absolute;
+  background-color: white;
+  --scale-multiplier: 2;
+}
+
+#statsContainer {
+  flex: 1 0 70px;
+  min-width: 70px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  text-align: center;
+}
+
+.stat-break {
+  display: none;
+}
+
+.stat {
+  width: 100%;
+  background-color: #303030;
+  font-size: 3rem;
 }
 
 #word {
+  margin-top: 1rem;
+  width: 100%;
+  height: 100px;
+  text-align: center;
   font-size: 2rem;
   letter-spacing: 1rem;
+  word-wrap: break-word;
+  overflow: scroll;
 }
 
 #letterButtonsContainer {
@@ -49,100 +86,70 @@
   color: #fff;
 }
 
-#gameInfoContainer {
-  display: grid;
-  grid-template-rows: 1fr 4fr;
-}
-
-#statsContainer {
-  background-color: #303030;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  text-align: center;
-}
-
-.stat {
-  width: 300px;
-  flex-shrink: 0;
-  font-size: 2rem;
-}
-
-#hangmanContainer {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  align-items: center;
-  padding-top: 40px;
-}
-
-.hangman-limb {
-  position: absolute;
-  background-color: white;
-  color: white;
-  width: 200px;
-  height: 10px;
-}
-
 .limb-1 {
-  transform: translateY(300px);
+  width: 120px;
+  height: 10px;
+  transform: translate(-60px, 80px);
 }
 
 .limb-2 {
-  transform: translateX(-50px) translateY(200px) rotate(90deg);
+  width: 10px;
+  height: 160px;
+  transform: translate(-50px, -80px);
 }
 
 .limb-3 {
-  width: 100px;
-  transform: translateX(5px) translateY(105px);
+  width: 80px;
+  height: 10px;
+  transform: translate(-40px, -80px);
 }
 
 .limb-4 {
-  height: 40px;
-  width: 40px;
+  height: 30px;
+  width: 30px;
   border-radius: 50%;
-  transform: translateX(40px) translateY(145px);
+  transform: translate(15px, -48px);
 }
 
 .limb-5 {
-  height: 10px;
-  width: 60px;
+  height: 50px;
+  width: 10px;
   border-radius: 20px;
-  transform: translateX(40px) translateY(200px) rotate(90deg);
+  transform: translate(25px, -30px);
 }
 
 .limb-6 {
   height: 10px;
-  width: 40px;
+  width: 35px;
   border-radius: 20px;
-  transform: translateX(55px) translateY(200px) rotate(45deg);
+  transform: translate(0, -15px) rotate(35deg);
 }
 
 .limb-7 {
   height: 10px;
-  width: 40px;
+  width: 35px;
   border-radius: 20px;
-  transform: translateX(25px) translateY(200px) rotate(-45deg);
+  transform: translate(25px, -15px) rotate(-35deg);
 }
 
 .limb-8 {
   height: 10px;
-  width: 50px;
+  width: 40px;
   border-radius: 20px;
-  transform: translateX(33px) translateY(245px) rotate(-70deg);
+  transform: translate(3px, 25px) rotate(-70deg);
 }
 
 .limb-9 {
   height: 10px;
-  width: 50px;
+  width: 40px;
   border-radius: 20px;
-  transform: translateX(48px) translateY(245px) rotate(70deg);
+  transform: translate(17px, 25px) rotate(70deg);
 }
 
 .limb-10 {
-  width: 40px;
-  height: 5px;
-  transform: translateX(40px) translateY(125px) rotate(90deg);
+  width: 5px;
+  height: 25px;
+  transform: translate(27px, -70px);
 }
 
 #mainGameNav {
@@ -193,4 +200,24 @@
 #mainGameHomeButton:hover::after {
   transform: scaleX(1);
   transform-origin: left;
+}
+
+@media (max-width: 800px) {
+  #gameInfoContainer {
+    gap: 2rem;
+  }
+
+  .stat-break {
+    display: inline;
+  }
+
+  .stat {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 400px) {
+  #gameInfoContainer {
+    gap: 0.5rem;
+  }
 }
