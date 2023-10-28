@@ -7,13 +7,13 @@
 }
 
 #categoryMenuButtonsContainer {
-  display: grid;
-  grid-template: repeat(2, 1fr) / repeat(2, 1fr);
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
   row-gap: 20px;
   column-gap: 20px;
   height: 60%;
   width: 70%;
-  place-items: center;
   margin: 0 auto;
 }
 
