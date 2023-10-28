@@ -39,3 +39,9 @@
     content: "...";
   }
 }
+
+@media (max-width: 800px) {
+  #loadingText {
+    font-size: 4rem;
+  }
+}
