@@ -286,6 +286,7 @@ mainGameHomeButton.addEventListener('click', goToMainMenu);
 
 createLetterButtons();
 initMainGameEventListeners();
+goToMainMenu();
 
 if (!localStorage.getItem('highScore')) {
   localStorage.setItem('highScore', highScoreValue);
