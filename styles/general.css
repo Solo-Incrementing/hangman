@@ -31,7 +31,7 @@ body {
 
 .menu-button {
   background-color: transparent;
-  border: 4px dashed;
+  border: 4px dashed #fff;
   border-radius: 20px;
   color: #fff;
   font-size: 3.5rem;
@@ -53,5 +53,16 @@ body {
 @media (max-width: 800px) {
   .content-container {
     padding: 1rem;
+  }
+
+  .menu-button {
+    border-style: solid;
+    font-size: 2.5rem;
+    width: 250px;
+    padding: 1rem;
+  }
+
+  .menu-button:active {
+    font-size: 2rem;
   }
 }
