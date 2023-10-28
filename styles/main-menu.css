@@ -21,3 +21,10 @@
   letter-spacing: 4px;
   text-decoration: underline;
 }
+
+
+@media (max-width: 800px) {
+  #mainMenuTitle {
+    font-size: 4rem;
+  }
+}
