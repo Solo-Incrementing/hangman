@@ -12,6 +12,10 @@ body {
   font-family: 'Architects Daughter', cursive;
 }
 
+button {
+  cursor: pointer;
+}
+
 .outer-container {
   position: relative;
   min-width: 300px;
