@@ -19,6 +19,7 @@ const mainGameContainer = document.getElementById('mainGameContainer');
 const letterButtonsContainer = document.getElementById('letterButtonsContainer');
 const highScore = document.getElementById('highScore');
 const score = document.getElementById('score');
+const message = document.getElementById('message');
 const word = document.getElementById('word');
 const hangmanLimbs = document.getElementsByClassName('hangman-limb');
 const mainGameHomeButton = document.getElementById('mainGameHomeButton');
@@ -196,7 +197,7 @@ function findLetterInWord(letter) {
 function wordFound() {
   updateHighScore();
 
-  console.log(`Congratulations! You found the word! It was ${currentWord}`);
+  message.innerText = `Congratutions! The word was ${currentWord.toLowerCase()}`;
   startGame();
 }
 
@@ -204,8 +205,12 @@ function wordNotFound() {
   updateHighScore();
   scoreValue = 0;
 
-  console.log(`You didn't guess in time! The correct answer was ${currentWord}`);
+  message.innerText = `Ouch! The correct word was ${currentWord.toLowerCase()}`;
   startGame();
+}
+
+function showMessage() {
+
 }
 
 function updateHighScore() {
