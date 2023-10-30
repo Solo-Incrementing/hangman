@@ -209,10 +209,6 @@ function wordNotFound() {
   startGame();
 }
 
-function showMessage() {
-
-}
-
 function updateHighScore() {
   if (highScoreValue < scoreValue) {
     highScoreValue = scoreValue;
