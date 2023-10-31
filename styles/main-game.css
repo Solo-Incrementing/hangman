@@ -4,7 +4,7 @@
 
 #gameInfoContainer {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
   max-height: 200px;
   gap: 6rem;
 }
@@ -28,6 +28,15 @@
   position: absolute;
   background-color: white;
 }
+
+.message {
+  position: absolute;
+  z-index: 11;
+  word-wrap: break-word;
+  text-wrap: wrap;
+  text-align: center;
+}
+
 
 #statsContainer {
   flex: 1 0 70px;

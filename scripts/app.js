@@ -147,6 +147,7 @@ function initMainGameEventListeners() {
   for (let i = 0; i < letterButtons.length; ++i) {
     letterButtons[i].addEventListener('click', (event) => {
       event.target.style.display = 'none';
+      message.innerText = '';
       letterButtonClicked(event);
     });
   }
@@ -197,7 +198,7 @@ function findLetterInWord(letter) {
 function wordFound() {
   updateHighScore();
 
-  message.innerText = `Congratutions! The word was ${currentWord.toLowerCase()}`;
+  message.innerText = `Congratutions! word was ${currentWord.toLowerCase()}`;
   startGame();
 }
 
@@ -205,7 +206,7 @@ function wordNotFound() {
   updateHighScore();
   scoreValue = 0;
 
-  message.innerText = `Ouch! The correct word was ${currentWord.toLowerCase()}`;
+  message.innerText = `Ouch! word was ${currentWord.toLowerCase()}`;
   startGame();
 }
 
