@@ -164,7 +164,10 @@
 }
 
 #mainGameNav {
+  position: absolute;
   text-align: right;
+  bottom: 0;
+  right: 0;
 }
 
 #mainGameHomeButton {
@@ -172,6 +175,8 @@
   border-style: hidden;
   width: 200px;
   height: 100px;
+  bottom: 2rem;
+  right: 2rem;
 }
 
 #mainGameHomeButton::after {
