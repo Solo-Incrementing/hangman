@@ -71,7 +71,7 @@
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  gap: 1rem;
+  gap: 2rem;
   padding: 2rem;
 }
 
@@ -79,16 +79,16 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 2rem;
+  font-size: 4rem;
   background-color: transparent;
-  width: 3rem;
+  width: 4rem;
   height: 3rem;
   text-align: center;
   border: none;
 }
 
 .letter-button:active .letter {
-  font-size: 1.5rem;
+  font-size: 3rem;
 }
 
 .letter {
@@ -224,6 +224,13 @@
 
   .stat {
     font-size: 2rem;
+  }
+}
+
+@media (max-width: 800px) {
+  #letterButtonsContainer {
+    gap: 0.5rem;
+    padding: 1rem;
   }
 }
 
