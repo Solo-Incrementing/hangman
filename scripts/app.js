@@ -111,7 +111,8 @@ function resetHangman() {
 
 function resetLetterButtons() {
 	for (let i = 0; i < letterButtons.length; ++i) {
-		letterButtons[i].style.display = "flex";
+		letterButtons[i].classList.remove("letter-button--clicked");
+		letterButtons[i].style.pointerEvents = "All";
 	}
 }
 
@@ -158,7 +159,8 @@ function startGame() {
 function initMainGameEventListeners() {
 	for (let i = 0; i < letterButtons.length; ++i) {
 		letterButtons[i].addEventListener("click", (event) => {
-			event.target.style.display = "none";
+			event.target.classList.add("letter-button--clicked");
+			event.target.style.pointerEvents = "None";
 			message.innerText = "";
 			letterButtonClicked(event);
 		});

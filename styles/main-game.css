@@ -86,6 +86,15 @@
 	border: none;
 }
 
+.letter-button--clicked::after {
+	position: absolute;
+	content: "";
+	width: 4rem;
+	height: 4rem;
+	border-radius: 999px;
+	border: 5px solid #fff;
+}
+
 .letter-button:active .letter {
 	font-size: 3rem;
 }
