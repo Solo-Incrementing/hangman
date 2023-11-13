@@ -1,246 +1,245 @@
 #mainGameContainer {
-  z-index: 7;
+	z-index: 7;
 }
 
 #gameInfoContainer {
-  display: flex;
-  justify-content: space-between;
-  max-height: 200px;
-  gap: 6rem;
+	display: flex;
+	justify-content: space-between;
+	max-height: 200px;
+	gap: 6rem;
 }
 
 #hangmanContainer {
-  flex: 1 0 140px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-width: 140px;
-  min-height: 200px;
-  max-width: 400px;
-  max-height: 400px;
+	flex: 1 0 140px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	min-width: 140px;
+	min-height: 200px;
+	max-width: 400px;
+	max-height: 400px;
 }
 
 #limbs-container {
-  position: relative;
+	position: relative;
 }
 
 .hangman-limb {
-  position: absolute;
-  background-color: white;
+	position: absolute;
+	background-color: white;
 }
 
 .message {
-  position: absolute;
-  z-index: 11;
-  word-wrap: break-word;
-  text-wrap: wrap;
-  text-align: center;
+	position: absolute;
+	z-index: 11;
+	word-wrap: break-word;
+	text-wrap: wrap;
+	text-align: center;
 }
 
-
 #statsContainer {
-  flex: 1 0 70px;
-  min-width: 70px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-  text-align: center;
+	flex: 1 0 70px;
+	min-width: 70px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-evenly;
+	text-align: center;
 }
 
 .stat-break {
-  display: none;
+	display: none;
 }
 
 .stat {
-  width: 100%;
-  font-size: 3rem;
+	width: 100%;
+	font-size: 3rem;
 }
 
 #word {
-  margin-top: 1rem;
-  width: 100%;
-  height: 100px;
-  text-align: center;
-  font-size: 2rem;
-  letter-spacing: 1rem;
-  word-wrap: break-word;
-  overflow: scroll;
+	margin-top: 1rem;
+	width: 100%;
+	height: 100px;
+	text-align: center;
+	font-size: 2rem;
+	letter-spacing: 1rem;
+	word-wrap: break-word;
+	overflow: scroll;
 }
 
 #letterButtonsContainer {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 2rem;
-  padding: 2rem;
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+	gap: 2rem;
+	padding: 2rem;
 }
 
 .letter-button {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 4rem;
-  background-color: transparent;
-  width: 4rem;
-  height: 3rem;
-  text-align: center;
-  border: none;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 4rem;
+	background-color: transparent;
+	width: 4rem;
+	height: 3rem;
+	text-align: center;
+	border: none;
 }
 
 .letter-button:active .letter {
-  font-size: 3rem;
+	font-size: 3rem;
 }
 
 .letter {
-  font-family: 'Architects Daughter', cursive;
-  pointer-events: none;
-  color: #fff;
+	font-family: "Architects Daughter", cursive;
+	pointer-events: none;
+	color: #fff;
 }
 
 .limb-1 {
-  width: 120px;
-  height: 10px;
-  transform: translate(-60px, 80px);
+	width: 120px;
+	height: 10px;
+	transform: translate(-60px, 80px);
 }
 
 .limb-2 {
-  width: 10px;
-  height: 160px;
-  transform: translate(-50px, -80px);
+	width: 10px;
+	height: 160px;
+	transform: translate(-50px, -80px);
 }
 
 .limb-3 {
-  width: 80px;
-  height: 10px;
-  transform: translate(-40px, -80px);
+	width: 80px;
+	height: 10px;
+	transform: translate(-40px, -80px);
 }
 
 .limb-4 {
-  height: 30px;
-  width: 30px;
-  border-radius: 50%;
-  transform: translate(15px, -48px);
+	height: 30px;
+	width: 30px;
+	border-radius: 50%;
+	transform: translate(15px, -48px);
 }
 
 .limb-5 {
-  height: 50px;
-  width: 10px;
-  border-radius: 20px;
-  transform: translate(25px, -30px);
+	height: 50px;
+	width: 10px;
+	border-radius: 20px;
+	transform: translate(25px, -30px);
 }
 
 .limb-6 {
-  height: 10px;
-  width: 35px;
-  border-radius: 20px;
-  transform: translate(0, -15px) rotate(35deg);
+	height: 10px;
+	width: 35px;
+	border-radius: 20px;
+	transform: translate(0, -15px) rotate(35deg);
 }
 
 .limb-7 {
-  height: 10px;
-  width: 35px;
-  border-radius: 20px;
-  transform: translate(25px, -15px) rotate(-35deg);
+	height: 10px;
+	width: 35px;
+	border-radius: 20px;
+	transform: translate(25px, -15px) rotate(-35deg);
 }
 
 .limb-8 {
-  height: 10px;
-  width: 40px;
-  border-radius: 20px;
-  transform: translate(3px, 25px) rotate(-70deg);
+	height: 10px;
+	width: 40px;
+	border-radius: 20px;
+	transform: translate(3px, 25px) rotate(-70deg);
 }
 
 .limb-9 {
-  height: 10px;
-  width: 40px;
-  border-radius: 20px;
-  transform: translate(17px, 25px) rotate(70deg);
+	height: 10px;
+	width: 40px;
+	border-radius: 20px;
+	transform: translate(17px, 25px) rotate(70deg);
 }
 
 .limb-10 {
-  width: 5px;
-  height: 25px;
-  transform: translate(27px, -70px);
+	width: 5px;
+	height: 25px;
+	transform: translate(27px, -70px);
 }
 
 #mainGameNav {
-  position: absolute;
-  text-align: right;
-  bottom: 0;
-  right: 0;
+	position: absolute;
+	text-align: right;
+	bottom: 0;
+	right: 0;
 }
 
 #mainGameHomeButton {
-  position: relative;
-  border-style: hidden;
-  width: 200px;
-  height: 100px;
-  bottom: 2rem;
-  right: 2rem;
+	position: relative;
+	border-style: hidden;
+	width: 200px;
+	height: 100px;
+	bottom: 2rem;
+	right: 2rem;
 }
 
 #mainGameHomeButton::after {
-  content: "";
-  width: 0;
-  height: 2px;
-  background-color: #fff;
-  transform-origin: left;
-  transition: width 0.25s;
+	content: "";
+	width: 0;
+	height: 2px;
+	background-color: #fff;
+	transform-origin: left;
+	transition: width 0.25s;
 }
 
 #mainGameHomeButton::after:hover {
-  content: "";
-  width: 200px;
-  height: 2px;
-  background-color: #fff;
+	content: "";
+	width: 200px;
+	height: 2px;
+	background-color: #fff;
 }
 
 #mainGameHomeButton {
-  position: relative;
-  color: #fff;
+	position: relative;
+	color: #fff;
 }
 
 #mainGameHomeButton::after {
-  content: '';
-  position: absolute;
-  width: 80%;
-  transform: scaleX(0);
-  height: 2px;
-  bottom: 20px;
-  left: 20px;
-  background-color: #fff;
-  transform-origin: left;
-  transition: transform 0.10s linear;
+	content: "";
+	position: absolute;
+	width: 80%;
+	transform: scaleX(0);
+	height: 2px;
+	bottom: 20px;
+	left: 20px;
+	background-color: #fff;
+	transform-origin: left;
+	transition: transform 0.1s linear;
 }
 
 #mainGameHomeButton:hover::after {
-  transform: scaleX(1);
-  transform-origin: left;
+	transform: scaleX(1);
+	transform-origin: left;
 }
 
 @media (max-width: 800px) {
-  #gameInfoContainer {
-    gap: 2rem;
-  }
+	#gameInfoContainer {
+		gap: 2rem;
+	}
 
-  .stat-break {
-    display: inline;
-  }
+	.stat-break {
+		display: inline;
+	}
 
-  .stat {
-    font-size: 2rem;
-  }
+	.stat {
+		font-size: 2rem;
+	}
 }
 
 @media (max-width: 800px) {
-  #letterButtonsContainer {
-    gap: 0.5rem;
-    padding: 1rem;
-  }
+	#letterButtonsContainer {
+		gap: 0.5rem;
+		padding: 1rem;
+	}
 }
 
 @media (max-width: 400px) {
-  #gameInfoContainer {
-    gap: 0.5rem;
-  }
+	#gameInfoContainer {
+		gap: 0.5rem;
+	}
 }
