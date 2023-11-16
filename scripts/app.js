@@ -1,3 +1,5 @@
+const DATA_URL = "https://kriyescodes.github.io/hangman/hangman-data.json";
+
 // general elements
 const contentContainers = document.getElementsByClassName(
 	"js-content-container"
@@ -54,7 +56,7 @@ let newGameSessionStarted = true;
 async function initNormalMode(categoryName) {
 	goToLoadingScreen();
 
-	await fetch("https://kriyes-m.github.io/hangman/hangman-data.json")
+	await fetch(DATA_URL)
 		.then((response) => response.json())
 		.then((json) => {
 			wordList = json.categories[categoryName];
@@ -70,7 +72,7 @@ async function initNormalMode(categoryName) {
 async function initHardcoreMode() {
 	goToLoadingScreen();
 
-	await fetch("https://kriyes-m.github.io/hangman/hangman-data.json")
+	await fetch(DATA_URL)
 		.then((response) => response.json())
 		.then((json) => {
 			wordList = json.hardcoreCategories["tenThousand"];
