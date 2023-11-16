@@ -71,7 +71,7 @@
 	justify-content: center;
 	flex-wrap: wrap;
 	gap: 2rem;
-	padding: 2rem;
+	padding-top: 2rem;
 }
 
 .letter-button {
@@ -226,6 +226,12 @@
 	transform-origin: left;
 }
 
+@media (max-width: 1100px) {
+	#letterButtonsContainer {
+		gap: 1rem;
+	}
+}
+
 @media (max-width: 800px) {
 	#gameInfoContainer {
 		gap: 2rem;
@@ -238,17 +244,35 @@
 	.stat {
 		font-size: 2rem;
 	}
-}
 
-@media (max-width: 800px) {
 	#letterButtonsContainer {
-		gap: 0.5rem;
-		padding: 1rem;
+		padding-top: 1rem;
 	}
 }
 
-@media (max-width: 400px) {
+@media (max-width: 700px) {
+	#letterButtonsContainer {
+		gap: 0.5rem;
+		padding: 0;
+	}
+
+	.letter-button {
+		font-size: 3rem;
+	}
+}
+
+@media (max-width: 550px) {
+	.letter-button {
+		width: 3rem;
+	}
+}
+
+@media (max-width: 450px) {
 	#gameInfoContainer {
 		gap: 0.5rem;
+	}
+
+	#letterButtonsContainer {
+		gap: 0;
 	}
 }
