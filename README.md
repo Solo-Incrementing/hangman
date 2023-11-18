@@ -8,6 +8,10 @@ Hangman game made with vanilla html, css and javascript.
 
 The aim of this project was to practice using the document object model. I dynamically generated some elements and used event listeners to alter the state of the game such as switching between game screens or changing the game mode (functionality) of the game dynamically.
 
+## Links
+
+[Live Game](https://kriyescodes.github.io/hangman/)
+
 ## The Game
 
 ### Core Game
@@ -21,10 +25,6 @@ The aim of this project was to practice using the document object model. I dynam
 ### Score System
 
 - The player gains a point for every correct letter and loses a point for every incorrect letter (Subject to change)
-
-## Links
-
-[Live Game](https://kriyescodes.github.io/hangman/)
 
 ## Technologies
 
