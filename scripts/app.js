@@ -1,4 +1,4 @@
-const DATA_URL = "https://kriyescodes.github.io/hangman/hangman-data.json";
+const DATA_URL = "https://kriyescodes.github.io/hangman/data/hangman-data.json";
 
 // general elements
 const contentContainers = document.getElementsByClassName(
