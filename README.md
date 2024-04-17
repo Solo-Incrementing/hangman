@@ -10,7 +10,7 @@ The aim of this project was to practice using the document object model. I dynam
 
 ## Links
 
-[Live Game](https://kriyescodes.github.io/hangman/)
+[Live Game]([https://kriyescodes.github.io/hangman/)
 
 ## The Game
 
